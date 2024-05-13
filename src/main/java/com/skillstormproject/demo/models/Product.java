@@ -1,5 +1,8 @@
 package com.skillstormproject.demo.models;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Product {
 private int idproduct;
 private String type;
