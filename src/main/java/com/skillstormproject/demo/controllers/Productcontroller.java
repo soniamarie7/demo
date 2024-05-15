@@ -1,8 +1,11 @@
 package com.skillstormproject.demo.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,25 +19,36 @@ import jakarta.persistence.Id;
 @RestController
 @RequestMapping("/product")
 public class Productcontroller {
-@Autowired productrepo repo;
+    @Autowired
+    productrepo repo;
 
-   
-   
-@GetMapping
+    @GetMapping
 
     public Product findallList() {
         return new Product();
-    } 
-@PostMapping
-public Product saveProduct(Product item) {
-    return repo.save(item); }
-@PutMapping({"/Id"})
-public Product replaceProduct(Product item) {
-    return repo.save(item);}
+    }
+
+    @PostMapping
+    public Product saveProduct(Product item) {
+        return repo.save(item);
+    }
+
+    @PutMapping( "/{Id}" )
+    public Product replaceProduct(Product item) {
+        return repo.save(item);
+    }
+
     @DeleteMapping
     public void updateProduct(Product item) {
-        repo.delete(item);
+        repo.delete(item);}
 
         
-        @GetMapping("Product/{Id});"
+        @GetMapping("/{Id}")
+        public Optional<Product> GetbyId(@PathVariable int Id){
+            return repo.findById(Id);
+
+
+
+
+        }
 }

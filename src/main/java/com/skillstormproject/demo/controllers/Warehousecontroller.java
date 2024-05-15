@@ -13,17 +13,17 @@ import com.skillstormproject.demo.repos.warehouserepo;
 public class Warehousecontroller {
     @Autowired
     private warehouserepo repo;
+
     @GetMapping("/warehouses")
     public List<Warehouse> findallList() {
-    return repo.findAll();
-    
+        return repo.findAll();
+
     }
-@GetMapping("warehouses/{Id}")
-public Warehouse getWarehouse (int warehouseId) {
-;
-return repo.getById(warehouseId);
 
+    @GetMapping("warehouses/{Id}")
+    public Warehouse getWarehouse(int warehouseId) {
+        ;
+        return repo.getById(warehouseId);
 
-
-}
+    }
 }
