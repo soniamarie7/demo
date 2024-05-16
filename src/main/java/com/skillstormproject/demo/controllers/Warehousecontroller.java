@@ -1,9 +1,11 @@
 package com.skillstormproject.demo.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstormproject.demo.models.Warehouse;
@@ -21,9 +23,9 @@ public class Warehousecontroller {
     }
 
     @GetMapping("warehouses/{Id}")
-    public Warehouse getWarehouse(int warehouseId) {
+    public Optional<Warehouse> getWarehouse(@PathVariable int warehouseId) {
         ;
-        return repo.getById(warehouseId);
+        return repo.findById(warehouseId);
 
     }
 }

@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstormproject.demo.models.Product;
@@ -29,26 +31,23 @@ public class Productcontroller {
     }
 
     @PostMapping
-    public Product saveProduct(Product item) {
+    public Product saveProduct(@RequestBody Product item) {
         return repo.save(item);
     }
 
-    @PutMapping( "/{Id}" )
-    public Product replaceProduct(Product item) {
+    @PutMapping("/{Id}")
+    public Product replaceProduct(@RequestBody Product item) {
         return repo.save(item);
     }
 
     @DeleteMapping
-    public void updateProduct(Product item) {
-        repo.delete(item);}
+    public void updateProduct(@Requestbody Product item) {
+        repo.delete(item);
+    }
 
-        
-        @GetMapping("/{Id}")
-        public Optional<Product> GetbyId(@PathVariable int Id){
-            return repo.findById(Id);
+    @GetMapping("/{Id}")
+    public Optional<Product> GetbyId(@PathVariable int Id) {
+        return repo.findById(Id);
 
-
-
-
-        }
+    }
 }
