@@ -22,7 +22,7 @@ public class Warehousecontroller {
 
     }
 
-    @GetMapping("warehouse/{Id}")
+    @GetMapping("warehouse/{id}")
     public Optional<Warehouse> getWarehouse(@PathVariable ("id") int warehouseId) {
         ;
         return repo.findById(warehouseId);
