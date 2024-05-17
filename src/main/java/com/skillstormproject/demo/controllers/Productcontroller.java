@@ -44,7 +44,7 @@ public class Productcontroller {
         repo.delete(item);
     }
 
-    @GetMapping("/{Id}")
+    @GetMapping("/{id}")
     public Optional<Product> GetbyId(@PathVariable ("id") int Id) {
         return repo.findById(Id);
 
