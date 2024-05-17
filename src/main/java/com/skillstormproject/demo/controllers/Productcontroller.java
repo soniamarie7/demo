@@ -39,9 +39,9 @@ public class Productcontroller {
         return repo.save(item);
     }
 
-    @DeleteMapping
-    public void updateProduct(@RequestBody Product item) {
-        repo.delete(item);
+    @DeleteMapping("/{id}")
+    public void deletetbyId(@PathVariable ("id") int Id) {
+        repo.deleteById(Id);
     }
 
     @GetMapping("/{id}")
