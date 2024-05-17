@@ -40,7 +40,7 @@ public class Productcontroller {
     }
 
     @DeleteMapping
-    public void updateProduct(@Requestbody Product item) {
+    public void updateProduct(@RequestBody Product item) {
         repo.delete(item);
     }
 
